@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arena Tech | Agência de Marketing Digital</title>
+    <!-- FAVICON DA EMPRESA (Substitua o caminho abaixo pelo link ou arquivo do seu favicon) -->
+    <link rel="icon" type="image/png" href="logo.jpg">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#0f071e',
+                        cardBg: '#180e2d',
+                        neonPurple: '#a855f7',
+                        neonPink: '#ec4899',
+                        electricCyan: '#06b6d4',
+                    },
+                    boxShadow: {
+                        'neon': '0 0 25px rgba(168, 85, 247, 0.4)',
+                        'neon-cyan': '0 0 25px rgba(6, 182, 212, 0.4)',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome para Ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #0f071e;
+            color: #f3f4f6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, .font-orbitron {
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .bg-grid-pattern {
+            background-size: 40px 40px;
+            background-image: 
+                linear-gradient(to right, rgba(168, 85, 247, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(168, 85, 247, 0.05) 1px, transparent 1px);
+        }
+
+        .glow-text {
+            text-shadow: 0 0 15px rgba(168, 85, 247, 0.6);
+        }
+
+        .glass-panel {
+            background: rgba(24, 14, 45, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(168, 85, 247, 0.2);
+        }
+
+        .glass-panel:hover {
+            border-color: rgba(168, 85, 247, 0.6);
+            box-shadow: 0 0 25px rgba(168, 85, 247, 0.25);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0f071e;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #a855f7;
+            border-radius: 5px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #c084fc;
+        }
+    </style>
+</head>
+<body class="bg-darkBg bg-grid-pattern text-gray-100 selection:bg-purple-500 selection:text-white">
+
+    <!-- HEADER / NAVBAR -->
+    <header class="fixed top-0 left-0 w-full z-50 glass-panel border-b border-purple-900/40 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-3 group">
+                <!-- LOGO DA EMPRESA: Substitua o caminho abaixo pela sua imagem de logo ou mantenha o ícone -->
+                <div class="w-11 h-11 rounded-xl overflow-hidden flex items-center justify-center shadow-neon group-hover:scale-105 transition-transform bg-gradient-to-tr from-purple-600 to-pink-500 p-0.5">
+                    <img src="logo.jpg" alt="Arena Tech Logo" class="w-full h-full object-cover rounded-xl" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <!-- Fallback caso a imagem não carregue -->
+                    <div class="w-full h-full bg-gradient-to-tr from-purple-600 to-pink-500 items-center justify-center hidden">
+                        <i class="fa-solid fa-rocket text-white text-lg"></i>
+                    </div>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-orbitron font-extrabold text-xl tracking-wider text-white">ARENA <span class="text-purple-400">TECH</span></span>
+                    <span class="text-[10px] tracking-widest text-purple-300 uppercase font-semibold">Agência de Marketing</span>
+                </div>
+            </a>
+
+            <nav class="hidden md:flex items-center gap-8 font-medium text-sm">
+                <a href="#inicio" class="text-gray-300 hover:text-purple-400 transition-colors">Início</a>
+                <a href="#sobre" class="text-gray-300 hover:text-purple-400 transition-colors">Sobre Nós</a>
+                <a href="#servicos" class="text-gray-300 hover:text-purple-400 transition-colors">Serviços</a>
+                <a href="#projetos" class="text-gray-300 hover:text-purple-400 transition-colors">Projetos & Reels</a>
+                <a href="#contato" class="text-gray-300 hover:text-purple-400 transition-colors">Contato</a>
+            </nav>
+
+            <div class="hidden md:flex items-center gap-4">
+                <a href="https://www.instagram.com/arenatech.br/" target="_blank" class="w-10 h-10 rounded-full glass-panel flex items-center justify-center text-pink-400 hover:scale-110 hover:bg-pink-600 hover:text-white transition-all duration-300">
+                    <i class="fa-brands fa-instagram text-lg"></i>
+                </a>
+                <a href="https://wa.me/558296792702?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20os%20serviços%20da%20Arena%20Tech!" target="_blank" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 text-white font-semibold text-sm shadow-neon flex items-center gap-2 transform hover:-translate-y-0.5 transition-all">
+                    <i class="fa-brands fa-whatsapp text-lg"></i> Fale Conosco
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="menu-btn" class="md:hidden text-purple-400 text-2xl focus:outline-none">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden glass-panel border-t border-purple-900/40 px-6 py-6 flex flex-col gap-4">
+            <a href="#inicio" class="mobile-link text-gray-300 hover:text-purple-400 font-medium">Início</a>
+            <a href="#sobre" class="mobile-link text-gray-300 hover:text-purple-400 font-medium">Sobre Nós</a>
+            <a href="#servicos" class="mobile-link text-gray-300 hover:text-purple-400 font-medium">Serviços</a>
+            <a href="#projetos" class="mobile-link text-gray-300 hover:text-purple-400 font-medium">Projetos & Reels</a>
+            <a href="#contato" class="mobile-link text-gray-300 hover:text-purple-400 font-medium">Contato</a>
+            <div class="flex items-center gap-4 pt-4 border-t border-purple-900/40">
+                <a href="https://www.instagram.com/arenatech.br/" target="_blank" class="w-10 h-10 rounded-full glass-panel flex items-center justify-center text-pink-400">
+                    <i class="fa-brands fa-instagram text-lg"></i>
+                </a>
+                <a href="https://wa.me/558296792702?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20os%20serviços%20da%20Arena%20Tech!" target="_blank" class="flex-1 py-2.5 rounded-xl bg-gradient-to-r from-purple-600 to-pink-600 text-white text-center font-semibold text-sm flex items-center justify-center gap-2">
+                    <i class="fa-brands fa-whatsapp"></i> WhatsApp
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="inicio" class="relative min-h-screen flex items-center justify-center pt-28 pb-16 overflow-hidden">
+        <!-- Glow Orbs Background -->
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-purple-600/20 rounded-full blur-[120px] pointer-events-none"></div>
+        <div class="absolute bottom-10 right-10 w-[350px] h-[350px] bg-pink-600/15 rounded-full blur-[100px] pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full text-center">
+            <div data-aos="fade-down" data-aos-duration="1000" class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-panel border border-purple-500/30 text-purple-300 text-xs sm:text-sm font-semibold mb-6">
+                <span class="w-2 h-2 rounded-full bg-pink-500 animate-pulse"></span>
+                O Futuro do Marketing Digital em Arapiraca - AL
+            </div>
+
+            <h1 data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200" class="font-orbitron font-black text-4xl sm:text-6xl lg:text-7xl tracking-tight text-white mb-6 uppercase">
+                Eleve sua marca para a <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-500 to-cyan-400 glow-text">Nova Era Digital</span>
+            </h1>
+
+            <p data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400" class="max-w-2xl mx-auto text-gray-300 text-base sm:text-lg mb-10 font-normal">
+                Estratégias de alto impacto, produção de conteúdo magnética e captações aéreas inovadoras com drone para transformar seguidores em clientes fiéis.
+            </p>
+
+            <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600" class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="https://wa.me/558296792702?text=Olá,%20quero%20acelerar%20meus%20resultados%20com%20a%20Arena%20Tech!" target="_blank" class="w-full sm:w-auto px-8 py-4 rounded-2xl bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 text-white font-bold text-base shadow-neon flex items-center justify-center gap-3 transform hover:-translate-y-1 transition-all">
+                    <i class="fa-brands fa-whatsapp text-2xl"></i> Iniciar Projeto no WhatsApp
+                </a>
+                <a href="#servicos" class="w-full sm:w-auto px-8 py-4 rounded-2xl glass-panel text-white font-semibold text-base hover:bg-purple-900/30 flex items-center justify-center gap-2 transition-all">
+                    Conhecer Serviços <i class="fa-solid fa-arrow-down text-sm"></i>
+                </a>
+            </div>
+
+            <!-- Stats Bar -->
+            <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="800" class="grid grid-cols-2 md:grid-cols-3 gap-6 max-w-4xl mx-auto mt-20">
+                <div class="glass-panel p-6 rounded-2xl border border-purple-500/20 text-center">
+                    <h3 class="font-orbitron font-extrabold text-3xl sm:text-4xl text-purple-400 mb-1">+100</h3>
+                    <p class="text-xs sm:text-sm text-gray-400">Projetos de Sucesso</p>
+                </div>
+                <div class="glass-panel p-6 rounded-2xl border border-purple-500/20 text-center">
+                    <h3 class="font-orbitron font-extrabold text-3xl sm:text-4xl text-pink-400 mb-1">100%</h3>
+                    <p class="text-xs sm:text-sm text-gray-400">Foco em Resultados</p>
+                </div>
+                <div class="glass-panel p-6 rounded-2xl border border-purple-500/20 text-center col-span-2 md:col-span-1">
+                    <h3 class="font-orbitron font-extrabold text-3xl sm:text-4xl text-cyan-400 mb-1">4K/FHD</h3>
+                    <p class="text-xs sm:text-sm text-gray-400">Captação Cinematográfica</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOBRE A EMPRESA -->
+    <section id="sobre" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div data-aos="fade-right" data-aos-duration="1000" class="relative">
+                    <div class="absolute -inset-2 bg-gradient-to-r from-purple-600 to-pink-600 rounded-3xl blur-xl opacity-30"></div>
+                    <div class="relative glass-panel p-8 sm:p-10 rounded-3xl border border-purple-500/30">
+                        <span class="text-purple-400 font-semibold text-xs tracking-widest uppercase mb-2 block font-orbitron">Sobre a Arena Tech</span>
+                        <h2 class="font-orbitron font-bold text-2xl sm:text-3xl lg:text-4xl text-white mb-6">
+                            Inovação e Tecnologia unidas para impulsionar o seu negócio
+                        </h2>
+                        <p class="text-gray-300 text-sm sm:text-base mb-6 leading-relaxed">
+                            Localizada no coração de Arapiraca, a <strong class="text-white">Arena Tech | Agência de Marketing Digital</strong>nasceu com o propósito de romper o convencional. Combinamos inteligência estratégica, criatividade visual implacável e tecnologia de ponta para posicionar marcas no topo.
+                        </p>
+                        <p class="text-gray-300 text-sm sm:text-base mb-8 leading-relaxed">
+                            Seja através de campanhas de tráfego ultra segmentadas, criação de conteúdos magnéticos para redes sociais ou gravações aéreas impressionantes com drone, nossa equipe está pronta para acelerar o seu crescimento.
+                        </p>
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-2xl bg-purple-600/20 border border-purple-500/40 flex items-center justify-center text-purple-400 text-xl">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white text-sm">Localização</h4>
+                                <p class="text-xs text-gray-400">Av. Deputada Ceci Cunha, Itapoá, Arapiraca - AL, 57314-105</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div data-aos="fade-left" data-aos-duration="1000" class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div class="glass-panel p-6 rounded-2xl border border-purple-500/20 hover:border-purple-500/50 transition-all group">
+                        <div class="w-12 h-12 rounded-xl bg-purple-600/20 flex items-center justify-center text-purple-400 text-xl mb-4 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-bullseye"></i>
+                        </div>
+                        <h3 class="font-orbitron font-bold text-lg text-white mb-2">Visão Estratégica</h3>
+                        <p class="text-gray-400 text-xs sm:text-sm">Planejamento focado em conversão, público-alvo qualificado e retorno real sobre o investimento.</p>
+                    </div>
+
+                    <div class="glass-panel p-6 rounded-2xl border border-purple-500/20 hover:border-purple-500/50 transition-all group">
+                        <div class="w-12 h-12 rounded-xl bg-pink-600/20 flex items-center justify-center text-pink-400 text-xl mb-4 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-wand-magic-sparkles"></i>
+                        </div>
+                        <h3 class="font-orbitron font-bold text-lg text-white mb-2">Criatividade Avançada</h3>
+                        <p class="text-gray-400 text-xs sm:text-sm">Designs modernos e conteúdos magnéticos que geram engajamento genuíno e autoridade.</p>
+                    </div>
+
+                    <div class="glass-panel p-6 rounded-2xl border border-purple-500/20 hover:border-purple-500/50 transition-all group">
+                        <div class="w-12 h-12 rounded-xl bg-cyan-600/20 flex items-center justify-center text-cyan-400 text-xl mb-4 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-video"></i>
+                        </div>
+                        <h3 class="font-orbitron font-bold text-lg text-white mb-2">Produção Audiovisual</h3>
+                        <p class="text-gray-400 text-xs sm:text-sm">Equipamentos profissionais e qualidade cinematográfica para prender a atenção do seu cliente.</p>
+                    </div>
+
+                    <div class="glass-panel p-6 rounded-2xl border border-purple-500/20 hover:border-purple-500/50 transition-all group">
+                        <div class="w-12 h-12 rounded-xl bg-purple-600/20 flex items-center justify-center text-purple-400 text-xl mb-4 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-headset"></i>
+                        </div>
+                        <h3 class="font-orbitron font-bold text-lg text-white mb-2">Suporte Dedicado</h3>
+                        <p class="text-gray-400 text-xs sm:text-sm">Acompanhamento próximo e transparente de todas as etapas das campanhas da sua empresa.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVIÇOS -->
+    <section id="servicos" class="py-24 bg-darkBg/50 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+                <span class="text-purple-400 font-semibold text-xs tracking-widest uppercase mb-2 block font-orbitron">O Que Fazemos</span>
+                <h2 class="font-orbitron font-black text-3xl sm:text-4xl text-white uppercase mb-4">
+                    Nossos <span class="text-purple-400">Serviços</span>
+                </h2>
+                <p class="text-gray-400 text-sm sm:text-base">Soluções completas desenhadas sob medida para destacar o seu negócio no mercado digital.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Serviço 1 -->
+                <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100" class="glass-panel p-8 rounded-3xl border border-purple-500/20 hover:border-purple-500/60 transition-all duration-300 group relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-purple-500/10 rounded-full blur-2xl group-hover:bg-purple-500/20 transition-all"></div>
+                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-tr from-purple-600 to-pink-600 flex items-center justify-center text-white text-2xl mb-6 shadow-neon group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-chess"></i>
+                    </div>
+                    <h3 class="font-orbitron font-bold text-xl text-white mb-3">Estratégia</h3>
+                    <p class="text-gray-300 text-sm mb-6 leading-relaxed">
+                        Planejamento de marketing digital focado em metas reais. Tráfego pago avançado, funis de vendas eficientes e posicionamento de marca estruturado para atrair compradores recorrentes.
+                    </p>
+                    <a href="https://wa.me/558296792702?text=Olá,%20quero%20saber%20mais%20sobre%20o%20serviço%20de%20Estratégia!" target="_blank" class="inline-flex items-center gap-2 text-purple-400 font-semibold text-sm group-hover:text-pink-400 transition-colors">
+                        Saiba mais <i class="fa-solid fa-arrow-right text-xs group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+
+                <!-- Serviço 2 -->
+                <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200" class="glass-panel p-8 rounded-3xl border border-purple-500/20 hover:border-purple-500/60 transition-all duration-300 group relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-pink-500/10 rounded-full blur-2xl group-hover:bg-pink-500/20 transition-all"></div>
+                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-tr from-pink-600 to-purple-600 flex items-center justify-center text-white text-2xl mb-6 shadow-neon group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-photo-film"></i>
+                    </div>
+                    <h3 class="font-orbitron font-bold text-xl text-white mb-3">Conteúdo</h3>
+                    <p class="text-gray-300 text-sm mb-6 leading-relaxed">
+                        Criação de identidade visual marcante, vídeos para Reels/TikTok de alto impacto, roteiros magnéticos e design profissional para transformar suas redes sociais em uma máquina de vendas.
+                    </p>
+                    <a href="https://wa.me/558296792702?text=Olá,%20quero%20saber%20mais%20sobre%20o%20serviço%20de%20Conteúdo!" target="_blank" class="inline-flex items-center gap-2 text-purple-400 font-semibold text-sm group-hover:text-pink-400 transition-colors">
+                        Saiba mais <i class="fa-solid fa-arrow-right text-xs group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+
+                <!-- Serviço 3 -->
+                <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300" class="glass-panel p-8 rounded-3xl border border-purple-500/20 hover:border-purple-500/60 transition-all duration-300 group relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-cyan-500/10 rounded-full blur-2xl group-hover:bg-cyan-500/20 transition-all"></div>
+                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-tr from-cyan-600 to-purple-600 flex items-center justify-center text-white text-2xl mb-6 shadow-neon-cyan group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-helicopter"></i>
+                    </div>
+                    <h3 class="font-orbitron font-bold text-xl text-white mb-3">Drone</h3>
+                    <p class="text-gray-300 text-sm mb-6 leading-relaxed">
+                        Captação de imagens aéreas em 4K com drone. Perfeito para imobiliárias, construtoras, eventos, empresas e estabelecimentos que desejam uma perspectiva cinematográfica e diferenciada.
+                    </p>
+                    <a href="https://wa.me/558296792702?text=Olá,%20quero%20saber%20mais%20sobre%20as%20filmagens%20com%20Drone!" target="_blank" class="inline-flex items-center gap-2 text-purple-400 font-semibold text-sm group-hover:text-pink-400 transition-colors">
+                        Saiba mais <i class="fa-solid fa-arrow-right text-xs group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJETOS & REELS (COM FOTO DE CAPA E LINK DIRETO PARA O INSTAGRAM) -->
+    <section id="projetos" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+                <span class="text-purple-400 font-semibold text-xs tracking-widest uppercase mb-2 block font-orbitron">Portfólio em Ação</span>
+                <h2 class="font-orbitron font-black text-3xl sm:text-4xl text-white uppercase mb-4">
+                    Nossos Projetos & <span class="text-pink-500">Reels</span>
+                </h2>
+                <p class="text-gray-400 text-sm sm:text-base">Clique para assistir aos Reels oficiais no Instagram da Arena Tech.</p>
+            </div>
+
+            <!-- Grade de Reels (Formato Vertical 9:16 com Foto de Capa e Link do Instagram) -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
+                
+                <!-- Reel 1 -->
+                <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100" class="w-full max-w-[320px] glass-panel rounded-3xl overflow-hidden border border-purple-500/30 group shadow-neon relative">
+                    <!-- Top bar estilo Instagram -->
+                    <div class="absolute top-3 left-3 right-3 z-20 flex items-center justify-between bg-black/60 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/10">
+                        <div class="flex items-center gap-2">
+                            <i class="fa-brands fa-instagram text-pink-400 text-sm"></i>
+                            <span class="text-[11px] font-bold text-white tracking-wide">@arenatech.br</span>
+                        </div>
+                        <span class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
+                    </div>
+
+                    <!-- Card com Foto de Capa e Link Direto -->
+                    <a href="https://www.instagram.com/reel/DQptOsXD0X8/?utm_source=ig_web_copy_link&stkn=MzRlODBiNWFlZA==" target="_blank" class="relative w-full aspect-[9/16] bg-black flex items-center justify-center overflow-hidden block">
+                        <!-- Foto de Capa (Substitua o src pela imagem de capa desejada) -->
+                        <img src="Drone.png" alt="Capa Reel 1" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        
+                        <!-- Overlay com botão de Play e Ícone do Instagram -->
+                        <div class="absolute inset-0 bg-black/30 flex flex-col items-center justify-center group-hover:bg-black/50 transition-colors">
+                            <div class="w-16 h-16 rounded-full bg-gradient-to-tr from-purple-600 to-pink-600 flex items-center justify-center text-white text-2xl shadow-neon group-hover:scale-110 transition-transform mb-3">
+                                <i class="fa-solid fa-play ml-1"></i>
+                            </div>
+                            <span class="text-xs font-semibold text-white bg-black/60 px-3 py-1 rounded-full border border-white/20">Assistir no Instagram</span>
+                        </div>
+
+                        <!-- Descrição Inferior -->
+                        <div class="absolute bottom-0 left-0 right-0 p-5 bg-gradient-to-t from-darkBg via-darkBg/80 to-transparent">
+                            <span class="text-[10px] uppercase font-extrabold tracking-wider text-cyan-400 mb-1 block">Captação com Drone</span>
+                            <h3 class="font-orbitron font-bold text-base text-white mb-1">Planejar, pilotar, produzir.</h3>
+                            <p class="text-gray-300 text-xs">Imagens aéreas cinematográficas em Arapiraca.</p>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Reel 2 -->
+                <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200" class="w-full max-w-[320px] glass-panel rounded-3xl overflow-hidden border border-purple-500/30 group shadow-neon relative">
+                    <div class="absolute top-3 left-3 right-3 z-20 flex items-center justify-between bg-black/60 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/10">
+                        <div class="flex items-center gap-2">
+                            <i class="fa-brands fa-instagram text-pink-400 text-sm"></i>
+                            <span class="text-[11px] font-bold text-white tracking-wide">@arenatech.br</span>
+                        </div>
+                        <span class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
+                    </div>
+
+                    <a href="https://www.instagram.com/reel/DNtrWGp3qiW/?utm_source=ig_web_copy_link&stkn=MzRlODBiNWFlZA==" target="_blank" class="relative w-full aspect-[9/16] bg-black flex items-center justify-center overflow-hidden block">
+                        <img src="Comercial.png" alt="Capa Reel 2" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        
+                        <div class="absolute inset-0 bg-black/30 flex flex-col items-center justify-center group-hover:bg-black/50 transition-colors">
+                            <div class="w-16 h-16 rounded-full bg-gradient-to-tr from-purple-600 to-pink-600 flex items-center justify-center text-white text-2xl shadow-neon group-hover:scale-110 transition-transform mb-3">
+                                <i class="fa-solid fa-play ml-1"></i>
+                            </div>
+                            <span class="text-xs font-semibold text-white bg-black/60 px-3 py-1 rounded-full border border-white/20">Assistir no Instagram</span>
+                        </div>
+
+                        <div class="absolute bottom-0 left-0 right-0 p-5 bg-gradient-to-t from-darkBg via-darkBg/80 to-transparent">
+                            <span class="text-[10px] uppercase font-extrabold tracking-wider text-pink-400 mb-1 block">Conteúdo & Reels</span>
+                            <h3 class="font-orbitron font-bold text-base text-white mb-1">Lançamento Comercial</h3>
+                            <p class="text-gray-300 text-xs">Conteúdo magnético e engajamento em massa.</p>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Reel 3 -->
+                <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300" class="w-full max-w-[320px] glass-panel rounded-3xl overflow-hidden border border-purple-500/30 group shadow-neon relative">
+                    <div class="absolute top-3 left-3 right-3 z-20 flex items-center justify-between bg-black/60 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/10">
+                        <div class="flex items-center gap-2">
+                            <i class="fa-brands fa-instagram text-pink-400 text-sm"></i>
+                            <span class="text-[11px] font-bold text-white tracking-wide">@arenatech.br</span>
+                        </div>
+                        <span class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
+                    </div>
+
+                    <a href="https://www.instagram.com/reel/DSGMjZGj2fb/?utm_source=ig_web_copy_link&stkn=MzRlODBiNWFlZA==" target="_blank" class="relative w-full aspect-[9/16] bg-black flex items-center justify-center overflow-hidden block">
+                        <img src="Estrategia.png" alt="Capa Reel 3" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        
+                        <div class="absolute inset-0 bg-black/30 flex flex-col items-center justify-center group-hover:bg-black/50 transition-colors">
+                            <div class="w-16 h-16 rounded-full bg-gradient-to-tr from-purple-600 to-pink-600 flex items-center justify-center text-white text-2xl shadow-neon group-hover:scale-110 transition-transform mb-3">
+                                <i class="fa-solid fa-play ml-1"></i>
+                            </div>
+                            <span class="text-xs font-semibold text-white bg-black/60 px-3 py-1 rounded-full border border-white/20">Assistir no Instagram</span>
+                        </div>
+
+                        <div class="absolute bottom-0 left-0 right-0 p-5 bg-gradient-to-t from-darkBg via-darkBg/80 to-transparent">
+                            <span class="text-[10px] uppercase font-extrabold tracking-wider text-purple-400 mb-1 block">Estratégia & Tráfego</span>
+                            <h3 class="font-orbitron font-bold text-base text-white mb-1">Escala de Vendas</h3>
+                            <p class="text-gray-300 text-xs">Funil completo focado em conversão e resultados.</p>
+                        </div>
+                    </a>
+                </div>
+
+            </div>
+
+            <!-- Call to Action Banner dentro de Projetos -->
+            <div data-aos="fade-up" data-aos-duration="1000" class="mt-16 glass-panel p-8 sm:p-12 rounded-3xl border border-purple-500/40 text-center relative overflow-hidden">
+                <div class="absolute -right-20 -bottom-20 w-64 h-64 bg-purple-600/20 rounded-full blur-3xl"></div>
+                <h3 class="font-orbitron font-bold text-2xl sm:text-3xl text-white mb-4 relative z-10">Pronto para colocar o seu projeto no ar?</h3>
+                <p class="text-gray-300 text-sm sm:text-base max-w-2xl mx-auto mb-8 relative z-10">Fale diretamente com nossa equipe especializada pelo WhatsApp ou confira nossos bastidores no Instagram.</p>
+                <div class="flex flex-wrap items-center justify-center gap-4 relative z-10">
+                    <a href="https://wa.me/558296792702?text=Olá,%20quero%20orçar%20um%20projeto%20com%20a%20Arena%20Tech!" target="_blank" class="px-8 py-3.5 rounded-xl bg-gradient-to-r from-purple-600 to-pink-600 text-white font-bold text-sm shadow-neon flex items-center gap-2">
+                        <i class="fa-brands fa-whatsapp text-lg"></i> Chamar no WhatsApp
+                    </a>
+                    <a href="https://www.instagram.com/arenatech.br/" target="_blank" class="px-8 py-3.5 rounded-xl glass-panel text-pink-400 font-semibold text-sm hover:bg-pink-600 hover:text-white transition-all flex items-center gap-2">
+                        <i class="fa-brands fa-instagram text-lg"></i> Seguir no Instagram
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTATO / LOCALIZAÇÃO -->
+    <section id="contato" class="py-24 bg-darkBg/50 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Info de Contato -->
+                <div data-aos="fade-right" data-aos-duration="1000">
+                    <span class="text-purple-400 font-semibold text-xs tracking-widest uppercase mb-2 block font-orbitron">Fale Conosco</span>
+                    <h2 class="font-orbitron font-black text-3xl sm:text-4xl text-white uppercase mb-6">
+                        Vamos iniciar sua <span class="text-purple-400">Transformação</span>
+                    </h2>
+                    <p class="text-gray-300 text-sm sm:text-base mb-8">
+                        Entre em contato agora mesmo ou visite nosso escritório em Arapiraca. Estamos prontos para elevar o nível da sua marca.
+                    </p>
+
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-2xl bg-purple-600/20 border border-purple-500/40 flex items-center justify-center text-purple-400 text-xl flex-shrink-0 mt-1">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white text-base">Endereço</h4>
+                                <p class="text-sm text-gray-400">Av. Deputada Ceci Cunha, Itapoá, Arapiraca - AL, 57314-105</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-2xl bg-pink-600/20 border border-pink-500/40 flex items-center justify-center text-pink-400 text-xl flex-shrink-0 mt-1">
+                                <i class="fa-brands fa-whatsapp"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white text-base">WhatsApp</h4>
+                                <p class="text-sm text-gray-400">+55 (82) 99679-2702</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-2xl bg-cyan-600/20 border border-cyan-500/40 flex items-center justify-center text-cyan-400 text-xl flex-shrink-0 mt-1">
+                                <i class="fa-brands fa-instagram"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white text-base">Instagram</h4>
+                                <p class="text-sm text-gray-400">@arenatech.br</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Formulário Rápido / Acesso Direto -->
+                <div data-aos="fade-left" data-aos-duration="1000" class="glass-panel p-8 sm:p-10 rounded-3xl border border-purple-500/30">
+                    <h3 class="font-orbitron font-bold text-2xl text-white mb-6">Envie uma Mensagem</h3>
+                    <form onsubmit="handleSubmit(event)" class="space-y-4">
+                        <div>
+                            <label class="block text-xs font-semibold uppercase tracking-wider text-gray-300 mb-2">Seu Nome</label>
+                            <input type="text" id="form-name" required class="w-full bg-darkBg/80 border border-purple-500/30 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-purple-500 transition-colors" placeholder="Digite seu nome">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold uppercase tracking-wider text-gray-300 mb-2">Seu WhatsApp</label>
+                            <input type="text" id="form-phone" required class="w-full bg-darkBg/80 border border-purple-500/30 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-purple-500 transition-colors" placeholder="(82) 99999-9999">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold uppercase tracking-wider text-gray-300 mb-2">Como podemos ajudar?</label>
+                            <textarea id="form-msg" rows="4" required class="w-full bg-darkBg/80 border border-purple-500/30 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-purple-500 transition-colors" placeholder="Fale sobre sua empresa ou projeto..."></textarea>
+                        </div>
+                        <button type="submit" class="w-full py-4 rounded-xl bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 text-white font-bold text-sm shadow-neon flex items-center justify-center gap-2 transition-all">
+                            <i class="fa-brands fa-whatsapp text-lg"></i> Enviar Mensagem via WhatsApp
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-purple-900/40 py-12 bg-darkBg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-purple-600 to-pink-500 flex items-center justify-center text-white">
+                    <i class="fa-solid fa-rocket text-sm"></i>
+                </div>
+                <span class="font-orbitron font-bold text-lg text-white">ARENA <span class="text-purple-400">TECH</span></span>
+            </div>
+
+            <p class="text-xs text-gray-400 text-center">
+                © 2026 Arena Tech | Agência de Marketing Digital. Todos os direitos reservados.
+            </p>
+
+            <div class="flex items-center gap-4">
+                <a href="https://www.instagram.com/arenatech.br/" target="_blank" class="w-9 h-9 rounded-full glass-panel flex items-center justify-center text-pink-400 hover:bg-pink-600 hover:text-white transition-all">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a href="https://wa.me/558296792702" target="_blank" class="w-9 h-9 rounded-full glass-panel flex items-center justify-center text-purple-400 hover:bg-purple-600 hover:text-white transition-all">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/558296792702?text=Olá,%20vim%20pela%20landing%20page%20e%20quero%20saber%20mais%20sobre%20os%20serviços!" target="_blank" class="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-gradient-to-tr from-green-500 to-emerald-400 text-white flex items-center justify-center shadow-2xl hover:scale-110 transition-transform duration-300">
+        <i class="fa-brands fa-whatsapp text-3xl"></i>
+    </a>
+
+    <!-- AOS Script -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            once: true,
+            offset: 100,
+            duration: 800,
+        });
+
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Form Submit Handler to WhatsApp
+        function handleSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('form-name').value;
+            const phone = document.getElementById('form-phone').value;
+            const msg = document.getElementById('form-msg').value;
+
+            const text = `Olá, meu nome é ${name} (WhatsApp: ${phone}). ${msg}`;
+            const encodedText = encodeURIComponent(text);
+            window.open(`https://wa.me/558296792702?text=${encodedText}`, '_blank');
+        }
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-darkBg/90');
+            } else {
+                navbar.classList.remove('bg-darkBg/90');
+            }
+        });
+    </script>
+</body>
+</html>
